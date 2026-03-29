@@ -1,0 +1,219 @@
+<mvc:View controllerName="zportfolio.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page id="page" showHeader="false" enableScrolling="true" class="portfolioPage">
+        <content>
+            <!-- ===== Section 1: Hero ===== -->
+            <VBox id="heroSection" class="heroSection" alignItems="Center">
+                <VBox class="heroAvatarWrap heroAnimated heroDelay0" alignItems="Center">
+                    <Avatar id="heroAvatar"
+                        initials="AD"
+                        displaySize="XL"
+                        backgroundColor="Accent6"
+                        class="heroAvatar" />
+                </VBox>
+                <Title id="heroName" text="{i18n>heroName}" level="H1" class="heroName heroAnimated heroDelay1" />
+                <Text id="heroSubtitle" text="{i18n>heroSubtitle}" class="heroSubtitle heroAnimated heroDelay2" />
+                <Text id="heroSummary" text="{i18n>heroSummary}" class="heroSummary heroAnimated heroDelay3" wrapping="true" textAlign="Center" />
+                <HBox class="heroButtons heroAnimated heroDelay4" justifyContent="Center">
+                    <Button id="btnDownloadCV" text="{i18n>btnDownloadCV}" icon="sap-icon://download" type="Emphasized" press=".onDownloadCV" class="sapUiSmallMarginEnd heroButton heroBtnPrimary" />
+                    <Button id="btnContactMe" text="{i18n>btnContactMe}" icon="sap-icon://email" type="Ghost" press=".onContactMe" class="heroButton heroBtnGhost" />
+                </HBox>
+                <HBox class="heroPills heroAnimated heroDelay5" justifyContent="Center">
+                    <ObjectStatus text="{i18n>heroLocation}" icon="sap-icon://map" class="heroPill" />
+                    <ObjectStatus text="{i18n>heroApps}" icon="sap-icon://developer-scenario" class="heroPill heroPillAccent" />
+                    <ObjectStatus text="{i18n>heroCustomers}" icon="sap-icon://group" class="heroPill heroPillAccent2" />
+                </HBox>
+            </VBox>
+
+            <!-- ===== Section 2: Stats Bar ===== -->
+            <HBox id="statsBar" class="statsBar" justifyContent="SpaceAround" wrap="Wrap">
+                <VBox class="statCard" alignItems="Center">
+                    <core:Icon src="sap-icon://history" size="1.5rem" class="statIcon" />
+                    <Title text="{i18n>statYears}" level="H2" class="statNumber" />
+                    <Label text="{i18n>statYearsLabel}" class="statLabel" />
+                </VBox>
+                <VBox class="statCard" alignItems="Center">
+                    <core:Icon src="sap-icon://developer-scenario" size="1.5rem" class="statIcon" />
+                    <Title text="{i18n>statApps}" level="H2" class="statNumber" />
+                    <Label text="{i18n>statAppsLabel}" class="statLabel" />
+                </VBox>
+                <VBox class="statCard" alignItems="Center">
+                    <core:Icon src="sap-icon://group" size="1.5rem" class="statIcon" />
+                    <Title text="{i18n>statCustomers}" level="H2" class="statNumber" />
+                    <Label text="{i18n>statCustomersLabel}" class="statLabel" />
+                </VBox>
+                <VBox class="statCard" alignItems="Center">
+                    <core:Icon src="sap-icon://trend-up" size="1.5rem" class="statIcon" />
+                    <Title text="{i18n>statUX}" level="H2" class="statNumber" />
+                    <Label text="{i18n>statUXLabel}" class="statLabel" />
+                </VBox>
+            </HBox>
+
+            <!-- ===== Section 3: Skills ===== -->
+            <VBox class="sectionWrapper skillsSection">
+                <Title text="{i18n>sectionSkills}" level="H3" class="sectionTitle" />
+                <FlexBox wrap="Wrap" justifyContent="Center" items="{skills>/skills}">
+                    <VBox class="skillCard">
+                        <core:Icon src="{skills>icon}" size="2rem" class="skillIcon" />
+                        <Title text="{skills>title}" level="H4" class="skillTitle" />
+                        <Text text="{skills>description}" wrapping="true" class="skillDesc" />
+                    </VBox>
+                </FlexBox>
+            </VBox>
+
+            <!-- ===== Section 4: Professional Experience ===== -->
+            <VBox class="sectionWrapper experienceSection">
+                <Title text="{i18n>sectionExperience}" level="H3" class="sectionTitle" />
+                <VBox class="expCard">
+                    <HBox class="expCardHeader" alignItems="Center">
+                        <core:Icon src="sap-icon://building" size="2rem" class="expIcon" />
+                        <VBox class="sapUiSmallMarginBegin">
+                            <Title text="{i18n>expEmployer}" level="H4" />
+                            <Text text="{i18n>expRole}" class="expRoleText" />
+                        </VBox>
+                    </HBox>
+                    <HBox class="expMeta" wrap="Wrap">
+                        <ObjectStatus text="{i18n>expDuration}" icon="sap-icon://calendar" class="expMetaItem" />
+                        <ObjectStatus text="{i18n>expLocation}" icon="sap-icon://map" class="expMetaItem" />
+                        <ObjectStatus text="{i18n>expRegions}" icon="sap-icon://world" class="expMetaItem" />
+                        <ObjectStatus text="{i18n>expYears}" icon="sap-icon://badge" class="expMetaItem expMetaHighlight" />
+                    </HBox>
+                    <Text text="{i18n>expSummary}" wrapping="true" class="expSummary" />
+                </VBox>
+            </VBox>
+
+            <!-- ===== Section 5: Projects Carousel ===== -->
+            <VBox class="sectionWrapper projectsSection">
+                <Title text="{i18n>sectionProjects}" level="H3" class="sectionTitle" />
+                <Carousel id="projectCarousel" class="projectCarousel" loop="true" showPageIndicator="true" pageIndicatorPlacement="Bottom">
+                    <!-- Air Liquide -->
+                    <VBox class="projectSlide projectSlide1">
+                        <VBox class="projectSlideHeader">
+                            <core:Icon src="sap-icon://factory" size="2.5rem" class="projectSlideIcon" />
+                            <Title text="{i18n>projAirLiquideTitle}" level="H3" class="projectSlideTitle" />
+                            <Text text="{i18n>projAirLiquideDate}" class="projectSlideDate" />
+                        </VBox>
+                        <VBox class="projectSlideBody">
+                            <HBox alignItems="Center" class="projectRoleBadge projectRoleBadgeLead">
+                                <core:Icon src="sap-icon://lead" size="1rem" class="sapUiTinyMarginEnd" />
+                                <Text text="{i18n>projAirLiquideRole}" />
+                            </HBox>
+                            <Text text="{i18n>projAirLiquideSummary}" wrapping="true" class="projectSlideDesc" />
+                            <HBox wrap="Wrap" class="projectTags">
+                                <Text text="UI5 Freestyle" class="projectTag" />
+                                <Text text="Fiori Elements" class="projectTag" />
+                                <Text text="Adaptation Variants" class="projectTag" />
+                                <Text text="CFL Extensions" class="projectTag" />
+                            </HBox>
+                        </VBox>
+                    </VBox>
+                    <!-- Ausgrid -->
+                    <VBox class="projectSlide projectSlide2">
+                        <VBox class="projectSlideHeader">
+                            <core:Icon src="sap-icon://energy-saving-lightbulb" size="2.5rem" class="projectSlideIcon" />
+                            <Title text="{i18n>projAusgridTitle}" level="H3" class="projectSlideTitle" />
+                            <Text text="{i18n>projAusgridDate}" class="projectSlideDate" />
+                        </VBox>
+                        <VBox class="projectSlideBody">
+                            <HBox alignItems="Center" class="projectRoleBadge">
+                                <core:Icon src="sap-icon://employee" size="1rem" class="sapUiTinyMarginEnd" />
+                                <Text text="{i18n>projAusgridRole}" />
+                            </HBox>
+                            <Text text="{i18n>projAusgridSummary}" wrapping="true" class="projectSlideDesc" />
+                            <HBox wrap="Wrap" class="projectTags">
+                                <Text text="300+ Fiori Apps" class="projectTag" />
+                                <Text text="S4HANA EWM" class="projectTag" />
+                                <Text text="SAP BTP" class="projectTag" />
+                                <Text text="Power BI Migration" class="projectTag" />
+                            </HBox>
+                        </VBox>
+                    </VBox>
+                    <!-- Servier -->
+                    <VBox class="projectSlide projectSlide3">
+                        <VBox class="projectSlideHeader">
+                            <core:Icon src="sap-icon://pharmacy" size="2.5rem" class="projectSlideIcon" />
+                            <Title text="{i18n>projServierTitle}" level="H3" class="projectSlideTitle" />
+                            <Text text="{i18n>projServierDate}" class="projectSlideDate" />
+                        </VBox>
+                        <VBox class="projectSlideBody">
+                            <HBox alignItems="Center" class="projectRoleBadge">
+                                <core:Icon src="sap-icon://employee" size="1rem" class="sapUiTinyMarginEnd" />
+                                <Text text="{i18n>projServierRole}" />
+                            </HBox>
+                            <Text text="{i18n>projServierSummary}" wrapping="true" class="projectSlideDesc" />
+                            <HBox wrap="Wrap" class="projectTags">
+                                <Text text="7 Custom Apps" class="projectTag" />
+                                <Text text="A2X API Extensions" class="projectTag" />
+                                <Text text="FLP Admin" class="projectTag" />
+                                <Text text="95% Adoption" class="projectTag" />
+                            </HBox>
+                        </VBox>
+                    </VBox>
+                </Carousel>
+            </VBox>
+
+            <!-- ===== Section 6: Education ===== -->
+            <VBox class="sectionWrapper educationSection">
+                <Title text="{i18n>sectionEducation}" level="H3" class="sectionTitle" />
+                <VBox class="eduTimeline">
+                    <HBox class="eduTimelineItem">
+                        <VBox class="eduTimelineDot" alignItems="Center">
+                            <core:Icon src="sap-icon://education" size="1.25rem" class="eduDotIcon" />
+                            <VBox class="eduTimelineLine" />
+                        </VBox>
+                        <VBox class="eduTimelineContent">
+                            <HBox class="eduBadge" alignItems="Center">
+                                <core:Icon src="sap-icon://calendar" size="0.8rem" class="eduBadgeIcon" />
+                                <Text text="{i18n>eduBTechYear}" class="eduBadgeText" />
+                            </HBox>
+                            <Title text="{i18n>eduBTechTitle}" level="H5" class="eduTitle" />
+                            <Text text="{i18n>eduBTechInst}" wrapping="true" class="eduInst" />
+                        </VBox>
+                    </HBox>
+                    <HBox class="eduTimelineItem">
+                        <VBox class="eduTimelineDot" alignItems="Center">
+                            <core:Icon src="sap-icon://education" size="1.25rem" class="eduDotIcon" />
+                        </VBox>
+                        <VBox class="eduTimelineContent">
+                            <Title text="{i18n>eduHSCTitle}" level="H5" class="eduTitle" />
+                            <Text text="{i18n>eduHSCInst}" wrapping="true" class="eduInst" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+            </VBox>
+
+            <!-- ===== Section 7: Contact / Footer ===== -->
+            <VBox id="footerSection" class="footerSection" alignItems="Center">
+                <Title text="{i18n>sectionContact}" level="H3" class="footerTitle" />
+                <Text text="{i18n>footerSubtitle}" wrapping="true" class="footerSubtitle" textAlign="Center" />
+                <HBox justifyContent="Center" wrap="Wrap" class="contactCards">
+                    <VBox class="contactCard" alignItems="Center">
+                        <VBox class="contactIconWrap contactIconEmail" alignItems="Center" justifyContent="Center">
+                            <core:Icon src="sap-icon://email" size="1.5rem" class="contactIconInner" press=".onEmailPress" />
+                        </VBox>
+                        <Text text="{i18n>contactEmailLabel}" class="contactCardLabel" />
+                        <Link text="{i18n>contactEmail}" href="mailto:arijit99aj@gmail.com" class="contactCardLink" />
+                    </VBox>
+                    <VBox class="contactCard" alignItems="Center">
+                        <VBox class="contactIconWrap contactIconPhone" alignItems="Center" justifyContent="Center">
+                            <core:Icon src="sap-icon://phone" size="1.5rem" class="contactIconInner" />
+                        </VBox>
+                        <Text text="{i18n>contactPhoneLabel}" class="contactCardLabel" />
+                        <Link text="{i18n>contactPhone}" href="tel:+917085271874" class="contactCardLink" />
+                    </VBox>
+                    <VBox class="contactCard" alignItems="Center">
+                        <VBox class="contactIconWrap contactIconLinkedIn" alignItems="Center" justifyContent="Center">
+                            <core:Icon src="sap-icon://share-2" size="1.5rem" class="contactIconInner" press=".onLinkedInPress" />
+                        </VBox>
+                        <Text text="{i18n>contactLinkedInLabel}" class="contactCardLabel" />
+                        <Link text="{i18n>contactLinkedIn}" href="https://linkedin.com/in/arijit-dhar-7b1700152" target="_blank" class="contactCardLink" />
+                    </VBox>
+                </HBox>
+                <Button text="{i18n>btnDownloadResume}" icon="sap-icon://download" type="Emphasized" press=".onDownloadCV" class="footerDownloadBtn" />
+                <Text text="{i18n>footerCopyright}" class="footerCopyright" />
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>
